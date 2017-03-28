@@ -6,4 +6,4 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /latex-source
 
-ENTRYPOINT [ "pdflatex" ]
+ENTRYPOINT [ "latexmk" ]
