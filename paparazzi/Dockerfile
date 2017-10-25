@@ -8,11 +8,11 @@ RUN bash deps.sh
 
 RUN git clone --origin upstream https://github.com/paparazzi/paparazzi.git
 
-WORKDIR paparazzi
+WORKDIR /paparazzi
 
-RUN git checkout -b v5.12_stable \
- #&& cp conf/system/udev/rules/*.rules /etc/udev/rules.d/ \
- #&& udevadm control --reload-rules \
- && make
+RUN git checkout -b v5.12_stable && make
+
+# cp conf/system/udev/rules/*.rules /etc/udev/rules.d/
+# udevadm control --reload-rules
 
 ENTRYPOINT [ "./paparazzi" ]
