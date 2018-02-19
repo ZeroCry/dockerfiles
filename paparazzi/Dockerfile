@@ -15,7 +15,7 @@ RUN git clone https://github.com/paparazzi/paparazzi.git
 
 WORKDIR paparazzi
 
-RUN git checkout $branch \
+RUN git checkout origin/$branch \
  && make
 
 # cp conf/system/udev/rules/*.rules /etc/udev/rules.d/
