@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+LATEST_VERSION="v5.12_stable"
+
+if [ "$DOCKER_TAG" = "latest" ]; then
+  PAPARAZZI_BRANCH=$LATEST_VERSION
+else
+  PAPARAZZI_BRANCH=$DOCKER_TAG
+fi
+
+docker build -t ${IMAGE_NAME} \
+  --build-arg branch=$PAPARAZZI_BRANCH \
+  .
