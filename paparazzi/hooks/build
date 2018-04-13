@@ -3,11 +3,11 @@
 LATEST_VERSION="v5.12_stable"
 
 if [ "$DOCKER_TAG" = "latest" ]; then
-  PAPARAZZI_BRANCH=$LATEST_VERSION
+  PAPARAZZI_TAG=$LATEST_VERSION
 else
-  PAPARAZZI_BRANCH=$DOCKER_TAG
+  PAPARAZZI_TAG=$DOCKER_TAG
 fi
 
 docker build -t ${IMAGE_NAME} \
-  --build-arg branch=$PAPARAZZI_BRANCH \
+  --build-arg paparazzi_tag=$PAPARAZZI_TAG \
   .

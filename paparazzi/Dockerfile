@@ -1,7 +1,7 @@
 # http://wiki.paparazziuav.org/wiki/Installation
 
 FROM ubuntu:latest
-ARG branch=v5.12_stable
+ARG paparazzi_tag=v5.12_stable
 
 ADD deps.sh .
 
@@ -15,7 +15,7 @@ RUN git clone https://github.com/paparazzi/paparazzi.git
 
 WORKDIR paparazzi
 
-RUN git checkout origin/$branch \
+RUN git checkout tags/$paparazzi_tag \
  && make
 
 # cp conf/system/udev/rules/*.rules /etc/udev/rules.d/
